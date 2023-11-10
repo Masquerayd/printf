@@ -1,5 +1,4 @@
 # Printf Function
 
-This is one of many major projects that
-
+The printf function is a very important and versatile function in the C programming language
 
