@@ -1,5 +1,6 @@
 # Printf Function
 
+<<<<<<< HEAD
 The printf functions printf all the arguments passed into the function and inserts them in the sentence. It handles Arguments , Error's , formate spercifiers, Converting and Formatting modifiers , Special cases and Memory management.
 
 ## Introduction to printf 
