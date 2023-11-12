@@ -16,7 +16,7 @@ The printf function should be able to handle these different format spercifiers 
 - `%X`: Format as a hexadecimal number, in uppercase
 - `%%`: Format spercifier is used to print the `%` character
 - `%n`: doesn't actually print anything, instead it stores the number of character printed so far, E.G:
-	- ```c
+	```c
 	int count;
 	printf("Count: %d%n, 42, &count);
 	```
@@ -24,5 +24,3 @@ The printf function should be able to handle these different format spercifiers 
 The printf function must look for the `%` in the string that will tell the function that the next character is a spercifier , using that spercifier it will then look at the argument and determine the type that was passed through. In the case that `printf` expecrs an `int` but the type is defferent printf must be able to handle the error.
 
 ## Handling FLags, Field width, Precision, and length Modifiers:
-
-
