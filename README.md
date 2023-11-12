@@ -40,7 +40,7 @@ after processing the formate string;
 1. The **buffer** accumulates these pieces as it processes the format string.
 1. finally when all the format spercifiers and all the arguments have been process the `printf` function then prints to the standard output.
 
-buffering is important as it reduces the write operation to the output. If The `printf` function doesn't see a newline  at then end of the format sting then it places the string in the buffer until it get the new line character. The buffer can be forced to fluch the buffer by using the flush (stdout).
+buffering is important as it reduces the write operation to the output. If The `printf` function doesn't see a newline  at then end of the format sting then it places the string in the buffer until it get the new line character. The buffer can be forced to fluch the buffer by using the fflush(stdout).
 
 ## Memory Management
 ### Memory allocation in Custom `printf`
