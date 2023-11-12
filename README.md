@@ -89,5 +89,11 @@ Here are some optimization strategies to consider for its performace and efficie
 1. Profiling - Use profiling tools to identify performance.
 
 ## Contributors
-@all-contributors
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
