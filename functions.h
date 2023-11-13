@@ -33,27 +33,27 @@ typedef struct specvalue
 typedef struct fsele
 {
 	char spec;
-	char *(*f)(char *format, specvalue speval);
+	char *(*f)(const char *format, specvalue speval);
 } funselec;
 
 /*
  * functions that will be chosen by the spercifier
  */
 
-char *strf(char *format, specvalue speval);
-char *decf(char *format, specvalue speval);
-char *unsignf(char *format, specvalue speval);
-char *chaf(char *format, specvalue speval);
-char *hexf(char *format, specvalue speval);
-char *HEXf(char *format, specvalue speval);
-char *perf(char *format, specvalue speval);
-char *savf(char *format, specvalue speval);
+char *strf(const char *format, specvalue speval);
+char *decf(const char *format, specvalue speval);
+char *unsignf(const char *format, specvalue speval);
+char *chaf(const char *format, specvalue speval);
+char *hexf(const char *format, specvalue speval);
+char *HEXf(const char *format, specvalue speval);
+char *perf(const char *format, specvalue speval);
+char *savf(const char *format, specvalue speval);
 
 /*
  * Functions that will be used in the main function
  */
 
 int _printf(const char *format, ...);
-char *(*get_func(char *s))(char *, specvalue);
+char *(*get_func(char s))(const char *, specvalue);
 
 #endif

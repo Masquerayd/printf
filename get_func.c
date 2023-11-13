@@ -6,7 +6,7 @@
  * @s: the spercifier
  * Returns: the function needed
  */
-char *(*get_func(char *s))(char *, specvalue)
+char *(*get_func(char s))(const char *, specvalue)
 {
 /**
  * initilizing funselec struct with spercifiers and functions
@@ -32,7 +32,7 @@ char *(*get_func(char *s))(char *, specvalue)
  */
 	for (i = 0; i < 9; i++)
 	{
-		if ((fselect[i].spec) == *(s))
+		if ((fselect[i].spec) == s)
 		{
 			return (fselect[i].f);
 					
