@@ -10,9 +10,8 @@ int _printf(const char *format, ...)
 {
 	va_list arg;
 	int count = 0;
-	char *(*func)(char *, specvalue);
+	char *(*func)(const char *, specvalue);
 	char *str;
-	const char *fformt = format;
 	specvalue svalue;
 
 	va_start(arg, format);
@@ -34,6 +33,7 @@ int _printf(const char *format, ...)
 			printf("%p",str);
 		}
 	}
+	return (0);
 
 }
 
