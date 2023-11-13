@@ -1,6 +1,6 @@
 # Printf Function
 
-The printf functions printf all the arguments passed into the function and inserts them in the sentence. It handles Arguments , Error's , formate spercifiers, Converting and Formatting modifiers , Special cases and Memory management.
+The printf functions printf all the arguments passed into the function and inserts them in the sentence. It handles Arguments , Errors , format spercifiers, Converting and Formatting modifiers , Special cases and Memory management.
 
 ## Introduction to printf 
 
@@ -48,7 +48,7 @@ buffering is important as it reduces the write operation to the output. If The `
 In this`printf` project we should be able to allocate memory dynamically and it has to be able to handle the varying length of the arguments, here are some tips for handling memory
 
 - When handling the `%s` spercifier , you will need to allocate memory for the string and free up the memmory when its no longer needed.
-- be aware of memory leaks , insure that when you allocate memory dynamically that you free up the memory otherwise it will cause memory leaks
+- be aware of memory leaks , ensure that when you allocate memory dynamically that you free up the memory otherwise it will cause memory leaks
 - Use `malloc` and `free` to allocate and dellocate memory.
 - Inorder to avooid buffer overflow ensure that you `printf` doesnt write more data to the buffer then it can hold
 
@@ -60,7 +60,7 @@ Here are a list of strategies that you can use to test your printf function:
 1. **Unit Testing**: test the `printf` function in small parts to ensure that the individual parts work
 1. **Test Cases**: Simulate different test cases to test your function
 1. **Compare with Standard `printf`**: Compare the output of the standard `printf` to your custom printf function.
-1. **Memory Testing**: Permorm memory leaks checks using **Valgrind** or **AddressSanitizer**.
+1. **Memory Testing**: Perform memory leaks checks using **Valgrind** or **Address Sanitizer**.
 1. **Corner Cases**: Test the `printf` with extreme or unusual cases, such as very large numbers of unusual format specifiers.
 1. **Check Pointers**: check if all functions that take pointers can deal with null characters.
 1. **Passing a NULL character**: the `printf` should be able to deal will NULL characters or a `NUll` argument.
