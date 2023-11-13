@@ -42,12 +42,6 @@ typedef struct fsele
 
 char *strf(const char *format, specvalue speval);
 char *decf(const char *format, specvalue speval);
-char *unsignf(const char *format, specvalue speval);
-char *chaf(const char *format, specvalue speval);
-char *hexf(const char *format, specvalue speval);
-char *HEXf(const char *format, specvalue speval);
-char *perf(const char *format, specvalue speval);
-char *savf(const char *format, specvalue speval);
 
 /*
  * Functions that will be used in the main function
