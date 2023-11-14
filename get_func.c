@@ -9,7 +9,14 @@ char *(*get_func(char s))(const char *format,specvalue)
 {
 	funselec funcs[] = {
 		{'s', strf},
-		{'d', decf}
+		{'d', decf},
+		{'u', unsf},
+		{'f', flof},
+		{'c', chaf},
+		{'x', hexf},
+		{'X', HEXf},
+		{'%', perf},
+		{'n', stof}
 	};
 
 	int i = 0;
