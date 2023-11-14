@@ -2,8 +2,7 @@
 
 int main(void)
 {
-	int value = 0;
-	value = _printf("%c%s%u%f%c%x%%%n",value);
+	_printf("%c%s%u%f%X%x%%%n",'k', "boom", 500, 22.22, 0x2, 0x3);
 	printf("\n");
 	return (0);
 }
