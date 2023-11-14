@@ -6,6 +6,11 @@ int _printf(const char *format, ...)
 	int count;
 	char *(*f)(const char *, specvalue);
 	specvalue speval; 
+	speval.str = "hello";
+	speval.cha = 'G';
+	speval.unvalue = 12;
+	speval.intvalue = 10;
+	speval.fvalue = 22.22;
 
 	va_start(arg, format);
 	
