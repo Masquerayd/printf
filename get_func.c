@@ -21,7 +21,7 @@ char *(*get_func(char s))(const char *format,specvalue)
 
 	int i = 0;
 
-	while (i < 2)
+	while (i < 9)
 	{
 		if (funcs[i].spec == s)
 		{

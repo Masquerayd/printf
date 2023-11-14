@@ -26,7 +26,7 @@ char *flof(const char *format, specvalue speval)
 
 char *chaf(const char *format, specvalue speval)
 {
-        printf("in chaf, format %s and string arg %d\n", format, speval.cha);
+        printf("in chaf, format %s and string arg %c\n", format, speval.cha);
         return (speval.str);
 }
 
@@ -44,13 +44,13 @@ char *HEXf(const char *format, specvalue speval)
 
 char *perf(const char *format, specvalue speval)
 {
-        printf("in perf, format %s and string arg %%", format);
+        printf("in perf, format %s and string arg %%\n", format);
         return (speval.str);
 }
 
 char *stof(const char *format, specvalue speval)
 {
-        printf("in stof, format %s", format);
+        printf("in stof, format %s\n", format);
         return (speval.str);
 }
 

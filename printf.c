@@ -1,4 +1,5 @@
 #include "functions.h"
+#include <stdlib.h>
 
 int _printf(const char *format, ...)
 {
@@ -39,8 +40,10 @@ int _printf(const char *format, ...)
 					speval.unvalue = va_arg(arg, unsigned int);
 					break;
 			}
-
+			if (f != NULL)
+			{
 			f(format, speval);
+			}
 		}
 	}
 	return (count);
