@@ -2,7 +2,7 @@
 
 The printf functions printf all the arguments passed into the function and inserts them in the sentence. It handles Arguments , Error's , formate spercifiers, Converting and Formatting modifiers , Special cases and Memory management.
 
-## Introduction to printf 
+## Introduction to printf
 
 The printf is a formated output thats a part of the `stdlib.h` its responsible for data to the standard output in spercified format. It is sometimes used for debugging for programmers
 
@@ -23,7 +23,7 @@ The printf function should be able to handle these different format spercifiers 
 
 The printf function must look for the `%` in the string that will tell the function that the next character is a spercifier , using that spercifier it will then look at the argument and determine the type that was passed through. In the case that `printf` expecrs an `int` but the type is different printf must be able to handle the error.
 
-## Output Generation 
+## Output Generation
 ### how `printf` Generates Formatted Output
 
 after processingthe formate string;

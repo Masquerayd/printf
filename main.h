@@ -1,19 +1,18 @@
-#ifndef main_H
-#define main_H
-/*
- * libraries that will be used by different functions
- */
+#ifndef MAIN_H
+#define MAIN_H
 #include <stdio.h>
 #include <stdarg.h>
+#include <unistd.h>
+
 
 /**
  * struct specvalue - specifier value
  *
- * @str: string 
+ * @str: string
  * @cha: character value
  * @unvalue: unsigned integer
- * @int: integer value
- * fvalue: float value
+ * @intvalue: integer value
+ * @fvalue: float value
  */
 
 typedef struct specvalue
@@ -26,8 +25,9 @@ typedef struct specvalue
 } specvalue;
 
 /**
- * fsele - selects a function based on spercifier
- * @f: function pointer to a function 
+ * struct fsele - selects a function based on spercifier
+ * @f: function pointer to a function
+ * @spec: spercifier
  */
 
 typedef struct fsele
@@ -58,6 +58,8 @@ int _printf(const char *format, ...);
 char *(*get_func(char s))(specvalue);
 int _strlen(char *str);
 char *_strcat(char *buffer, char *str);
+int _printchar(char str);
 int printstr(char *str);
+void funcsplit(va_list arg, char cha);
 
 #endif
