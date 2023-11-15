@@ -1,84 +1,47 @@
 #include "main.h"
-#include <stdlib.h>
+#include <stdarg.h>
 
 /**
- * _printf - acts like printf
- * @format: the string to print
- * Return: number of characters printed
+ * _printf - prints strings and argument
+ * @str: string
+ * Return: amount of characters printed
  */
-int _printf(const char *format, ...)
+int _printf(const char *str, ...)
 {
+	int c, b = 0;
 	va_list arg;
-	char *(*f)(specvalue), *buffer, temp;
-	int flag = 0,flag2 = 0,flag3 = 0 ,count;
-	specvalue speval;
 
-	buffer = malloc(100000);	
+	va_start(arg, str);
 
-
-	va_start(arg, format);
-	
-	for (count = 0 ; format[count] != '\0'; count++)
+	if (str == NULL)
 	{
-		if (format[count] == '%' && format != NULL)
-		{
-			format++;
-			flag2 = 1;
-			f = get_func(format[count]);
-			if (format[count] == ('i' || 'x' || 'X'))
-			{
-				speval.intvalue = va_arg(arg, int);
-			}
-			else if (format[count] == 'c')
-			{
-				buffer[_strlen(buffer)] = va_arg(arg, int);
-				flag3 = 1;
-			}
-			else if (format[count] == 'f')
-			{
-				speval.fvalue = va_arg(arg, double);
-			}
-			else if	(format[count] == 's')
-			{
-				speval.str = va_arg(arg, char *);
-			}
-			else if (format[count] == 'u')
-			{
-				speval.unvalue = va_arg(arg, unsigned int);
-			}
-			else if (format[count] == '%')
-			{
-				if (flag == 1)
-				{
-					flag = 0;
-					f = NULL;
-				}
-				else
-				{
-					flag = 1;
-				}
-			}
-			if (f != NULL && flag3 != 1)
-			{
-				buffer = _strcat(buffer,f(speval));
-			}
-		}
-		if (flag2 == 0)
-		{
-			temp = format[count];
-			buffer[_strlen(buffer)] = temp;
-			buffer[_strlen(buffer) + 1] = '\0';
-		}
-		flag = 0;
-		flag2 =0;
-		flag3 = 0;
+		_printchar('\n');
 	}
-	count = printstr(buffer);
-	free(buffer);
-	va_end(arg);
-	return (count - 1);
+
+	for (c = 0; str[c] != '\0'; c++)
+	{
+		if (str[c] == '%')
+		{
+			c++;
+			if (str[c] == 'd' || str[c] == 'c' || str[c] == ('x' || 'X'))
+			{
+				funcsplit(arg, str[c]);
+				va_arg(arg, int);
+				b--;
+			}
+			if (str[c] == 's')
+			{
+				b += printstr(va_arg(arg, char *)) - 2;
+			}
+			else if (str[c] == '%')
+			{
+				_printchar(str[c]);
+			}
+		}
+		else
+		{
+			_printchar(str[c]);
+		}
+	}
+	return (c + b);
 }
-
-
-
-	
