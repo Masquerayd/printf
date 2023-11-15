@@ -22,7 +22,10 @@ char *flof(const char *format, specvalue speval)
 */
 char *chaf(specvalue speval)
 {
-	char *str = {speval.cha, '\0'}
+	char *str = "a";
+       str[0] = speval.cha;
+       str[1] = '\0';
+       printf("chaf");
         return (str);
 }
 /*
@@ -38,6 +41,7 @@ char *HEXf(const char *format, specvalue speval)
 */
 char *perf(specvalue speval)
 {
+	(void)speval;
         return ("%");
 }
 /*

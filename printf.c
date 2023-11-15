@@ -10,10 +10,11 @@ int _printf(const char *format, ...)
 {
 	va_list arg;
 	char *(*f)(specvalue), *buffer, temp;
-	int flag = 0,flag2 = 0, count;
+	int flag = 0,flag2 = 0,flag3 = 0 ,count;
 	specvalue speval;
 
 	buffer = malloc(100000);	
+
 
 	va_start(arg, format);
 	
@@ -30,7 +31,8 @@ int _printf(const char *format, ...)
 			}
 			else if (format[count] == 'c')
 			{
-				speval.cha = va_arg(arg, int);
+				buffer[_strlen(buffer)] = va_arg(arg, int);
+				flag3 = 1;
 			}
 			else if (format[count] == 'f')
 			{
@@ -56,7 +58,7 @@ int _printf(const char *format, ...)
 					flag = 1;
 				}
 			}
-			if (f != NULL)
+			if (f != NULL && flag3 != 1)
 			{
 				buffer = _strcat(buffer,f(speval));
 			}
@@ -69,6 +71,7 @@ int _printf(const char *format, ...)
 		}
 		flag = 0;
 		flag2 =0;
+		flag3 = 0;
 	}
 	count = printstr(buffer);
 	free(buffer);
