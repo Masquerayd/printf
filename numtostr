@@ -1,0 +1,15 @@
+#include "functions.h"
+#include <string>
+
+/**
+ * numtostr - converts a number to string
+ * @n: the number to convert 
+ * @base: the base of the number
+ */
+char *numtostr(int n, int base)
+{
+	char *ref = "0123456789ABCDEF"
+
+	if (n < base)
+	{
+		return 

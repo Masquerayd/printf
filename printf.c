@@ -1,60 +1,79 @@
-#include "functions.h"
+#include "main.h"
 #include <stdlib.h>
 
+/**
+ * _printf - acts like printf
+ * @format: the string to print
+ * Return: number of characters printed
+ */
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int count;
-	char *(*f)(const char *, specvalue);
-	int flag = 0;
-	specvalue speval; 
+	char *(*f)(specvalue), *buffer, temp;
+	int flag = 0,flag2 = 0, count;
+	specvalue speval;
+
+	buffer = malloc(100000);	
 
 	va_start(arg, format);
 	
 	for (count = 0 ; format[count] != '\0'; count++)
 	{
-		if (format[count] == '%' && format)
+		if (format[count] == '%' && format != NULL)
 		{
-			f = get_func(format[count + 1]);
-			switch (format[count +1])
+			format++;
+			flag2 = 1;
+			f = get_func(format[count]);
+			if (format[count] == ('i' || 'x' || 'X'))
 			{
-				case 'i':
-				case 'x':
-				case 'X':
-					speval.intvalue = va_arg(arg, int);
-
-					break;
-				case 'c':
-					speval.cha = va_arg(arg, int);
-					break;
-				case 'f':
-					speval.fvalue = va_arg(arg, double);
-					break;
-				case 's':
-					speval.str = va_arg(arg, char *);
-					break;
-				case 'u':
-					speval.unvalue = va_arg(arg, unsigned int);
-					break;
-				case '%':
-					if (flag == 1)
-					{
-						flag = 0;
-						f = NULL;
-						break;
-					}
+				speval.intvalue = va_arg(arg, int);
+			}
+			else if (format[count] == 'c')
+			{
+				speval.cha = va_arg(arg, int);
+			}
+			else if (format[count] == 'f')
+			{
+				speval.fvalue = va_arg(arg, double);
+			}
+			else if	(format[count] == 's')
+			{
+				speval.str = va_arg(arg, char *);
+			}
+			else if (format[count] == 'u')
+			{
+				speval.unvalue = va_arg(arg, unsigned int);
+			}
+			else if (format[count] == '%')
+			{
+				if (flag == 1)
+				{
+					flag = 0;
+					f = NULL;
+				}
+				else
+				{
 					flag = 1;
-
-
+				}
 			}
 			if (f != NULL)
 			{
-			f(format, speval);
+				buffer = _strcat(buffer,f(speval));
 			}
 		}
+		if (flag2 == 0)
+		{
+			temp = format[count];
+			buffer[_strlen(buffer)] = temp;
+			buffer[_strlen(buffer) + 1] = '\0';
+		}
+		flag = 0;
+		flag2 =0;
 	}
-	return (count);
+	count = printstr(buffer);
+	free(buffer);
 	va_end(arg);
+	return (count - 1);
 }
 
 
