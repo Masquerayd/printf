@@ -61,5 +61,6 @@ char *_strcat(char *buffer, char *str);
 int _printchar(char str);
 int printstr(char *str);
 void funcsplit(char value, char cha);
+int printschec(char *string);
 
 #endif

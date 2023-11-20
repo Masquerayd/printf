@@ -2,7 +2,7 @@
 
 /**
  * funcsplit - chooses which function to use
- * @arg: passed argument
+ * @value: passed argument
  * @cha: spercifier
  */
 void funcsplit(char value, char cha)
