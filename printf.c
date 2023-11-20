@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
-
+#include <stdlib.h>
 /**
  * _printf - prints strings and argument
  * @str: string
@@ -10,8 +10,10 @@ int _printf(const char *str, ...)
 {
 	int c, b = 0;
 	va_list arg;
+	char *string,temp;
 
 	va_start(arg, str);
+	string =(char *)malloc(10000 * sizeof(char));
 
 	if (str == NULL)
 	{
@@ -23,15 +25,24 @@ int _printf(const char *str, ...)
 		if (str[c] == '%')
 		{
 			c++;
-			if (str[c] == 'd' || str[c] == 'c' || str[c] == ('x' || 'X'))
+			if (str[c] == 'c')
 			{
-				funcsplit(arg, str[c]);
-				va_arg(arg, int);
+				temp = va_arg(arg, int);
+				funcsplit(temp, str[c]);
 				b--;
 			}
 			if (str[c] == 's')
 			{
-				b += printstr(va_arg(arg, char *)) - 2;
+				string = va_arg(arg, char *);
+				if (string)
+				{
+					b += printstr(string) - 2;
+				}
+				else
+				{
+					b += printstr("(null)") - 2;
+				}
+
 			}
 			else if (str[c] == '%')
 			{
@@ -43,5 +54,6 @@ int _printf(const char *str, ...)
 			_printchar(str[c]);
 		}
 	}
+
 	return (c + b);
 }

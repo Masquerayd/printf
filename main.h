@@ -60,6 +60,6 @@ int _strlen(char *str);
 char *_strcat(char *buffer, char *str);
 int _printchar(char str);
 int printstr(char *str);
-void funcsplit(va_list arg, char cha);
+void funcsplit(char value, char cha);
 
 #endif

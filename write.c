@@ -12,8 +12,8 @@ int printstr(char *str)
 
 	if (str == NULL)
 	{
-		strlength = _strlen("(nil)");
-		write(1, "(nil)", strlength);
+		strlength = _strlen("(null)");
+		write(1, "(null)", strlength);
 		return (strlength);
 	}
 
