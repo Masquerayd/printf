@@ -5,15 +5,15 @@
  * @arg: passed argument
  * @cha: spercifier
  */
-void funcsplit(va_list arg, char cha)
+void funcsplit(char value, char cha)
 {
 	switch (cha)
 	{
 		case 'c':
-			_printchar(va_arg(arg, int));
+			_printchar(value);
 			break;
 		case 'i':
-			printf("!!i(%c)", va_arg(arg, int));
+			printf("!!i(%c)", value);
 			break;
 	}
 }

@@ -8,8 +8,10 @@
 int _strlen(char *str)
 {
 	int count = 0;
+	char *string = str;
 
-	while (str[count] != '\0')
+
+	while (string[count] != '\0')
 	{
 		count++;
 	}
