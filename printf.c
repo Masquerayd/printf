@@ -10,16 +10,15 @@ int _printf(const char *str, ...)
 {
 	int c, b = 0;
 	va_list arg;
-	char *string,temp;
-
-	va_start(arg, str);
-	string =(char *)malloc(10000 * sizeof(char));
+	char *string, temp;
 
 	if (str == NULL)
 	{
 		_printchar('\n');
+		return (0);
 	}
-
+	va_start(arg, str);
+	string = (char *)malloc(10000 * sizeof(char));
 	for (c = 0; str[c] != '\0'; c++)
 	{
 		if (str[c] == '%')
@@ -34,19 +33,12 @@ int _printf(const char *str, ...)
 			if (str[c] == 's')
 			{
 				string = va_arg(arg, char *);
-				if (string)
-				{
-					b += printstr(string) - 2;
-				}
-				else
-				{
-					b += printstr("(null)") - 2;
-				}
-
+				b += printschec(string) - 2;
 			}
 			else if (str[c] == '%')
 			{
 				_printchar(str[c]);
+				b--;
 			}
 		}
 		else
@@ -54,6 +46,5 @@ int _printf(const char *str, ...)
 			_printchar(str[c]);
 		}
 	}
-
 	return (c + b);
 }
