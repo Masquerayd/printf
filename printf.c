@@ -14,7 +14,7 @@ int _printf(const char *str, ...)
 
 	if (str == NULL)
 	{
-		return (0);
+		return (-1);
 	}
 	va_start(arg, str);
 	string = (char *)malloc(10000 * sizeof(char));
