@@ -15,7 +15,7 @@ int printschec(char *string)
 	}
 	else
 	{
-		b += printstr("null");
+		b += printstr("(null)");
 	}
 	return (b);
 }

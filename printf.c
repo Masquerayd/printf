@@ -14,7 +14,6 @@ int _printf(const char *str, ...)
 
 	if (str == NULL)
 	{
-		_printchar('\n');
 		return (0);
 	}
 	va_start(arg, str);
