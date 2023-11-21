@@ -26,7 +26,7 @@ int _printf(const char *str, ...)
 				funcsplit(va_arg(arg, int), str[c]);
 				b--;
 			}
-			if (str[c] == 's')
+			else if (str[c] == 's')
 			{
 				b += printschec(va_arg(arg, char *)) - 2;
 			}
