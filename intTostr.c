@@ -11,7 +11,7 @@ void intTstr(int inum, char *str)
 	int i = 0, number, length = 0, a;
 
 	a = inum;
-	while(a != 0)
+	while (a != 0)
 	{
 		length++;
 		a /= 10;
@@ -26,16 +26,16 @@ void intTstr(int inum, char *str)
 		{
 			number = inum % 10;
 			inum = inum / 10;
-			str[length -(i + 1)] = number + '0';
+			str[length - (i + 1)] = number + '0';
 		}
 	}
-	else 
+	else
 	{
 		for (i = i; i < length; i++)
 		{
 			number = inum % 10;
 			inum = inum / 10;
-			str[length -(i + 1)] = number + '0';
+			str[length - (i + 1)] = number + '0';
 		}
 	}
 	str[length] = '\0';

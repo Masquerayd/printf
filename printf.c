@@ -23,28 +23,22 @@ int _printf(const char *str, ...)
 			c++;
 			if (str[c] == 'c' || str[c] == 'i' || str[c] == 'd')
 			{
-				b -= funcsplit(arg, str[c]);
-/*				funcsplit(va_arg(arg, int), str[c]);
-*/				
-			}
-			else if (str[c] == 's')
+				b = funcsplit(arg, str[c]) - 2;
+			} else if (str[c] == 's')
 			{
-				b += funcsplit(arg, str[c]);/*
-				b += printschec(va_arg(arg, char *)) - 2;
-*/
-			}
-			else if (str[c] == '%')
+				b += funcsplit(arg, str[c]);
+			} else if (str[c] == '%')
 			{
 				_printchar(str[c]);
 				b--;
-			}
-			else
+			} else if (str[c] != '\0')
 			{
 				_printchar('%');
 				c--;
+			} else
+			{
 			}
-		}
-		else
+		} else
 		{
 			_printchar(str[c]);
 		}

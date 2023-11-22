@@ -6,6 +6,7 @@
  * funcsplit - chooses which function to use
  * @value: passed argument
  * @cha: spercifier
+ * Return: the num of characters printed
  */
 int funcsplit(va_list value, char cha)
 {
@@ -26,7 +27,8 @@ int funcsplit(va_list value, char cha)
 			b = printstr(string);
 			break;
 		case 's':
-			b = printstr(va_arg(value , char *)) - 2;
+			b = printschec(va_arg(value, char *)) - 2;
+			break;
 	}
 	free(string);
 	return (b);
