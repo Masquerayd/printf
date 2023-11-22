@@ -14,15 +14,13 @@ int _printf(const char *str, ...)
 
 	value = malloc(sizeof(specvalue));
 	if (str == NULL)
-	{
-		return (-1);
+	{	return (-1);
 	}
 	va_start(arg, str);
 	for (c = 0; str[c] != '\0'; c++)
 	{
 		if (str[c] == '%')
-		{
-			c++;
+		{	c++;
 			if (str[c] == 'c' || str[c] == 'i' || str[c] == 'd')
 			{
 				if (str[c] == 'c')
@@ -41,10 +39,13 @@ int _printf(const char *str, ...)
 			} else if (str[c] != '\0')
 			{	_printchar('%');
 				c--;
+			} else if (str[c] == '\0')
+			{	b = -3;
 			}
 		} else
 		{	_printchar(str[c]);
 		}
 	}
+	free(value);
 	return (c + b);
 }
