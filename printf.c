@@ -21,14 +21,17 @@ int _printf(const char *str, ...)
 		if (str[c] == '%')
 		{
 			c++;
-			if (str[c] == 'c')
+			if (str[c] == 'c' || str[c] == 'i' || str[c] == 'd')
 			{
-				funcsplit(va_arg(arg, int), str[c]);
-				b--;
+				b -= funcsplit(arg, str[c]);
+/*				funcsplit(va_arg(arg, int), str[c]);
+*/				
 			}
 			else if (str[c] == 's')
 			{
+				b += funcsplit(arg, str[c]);/*
 				b += printschec(va_arg(arg, char *)) - 2;
+*/
 			}
 			else if (str[c] == '%')
 			{
