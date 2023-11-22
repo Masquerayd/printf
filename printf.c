@@ -10,7 +10,9 @@ int _printf(const char *str, ...)
 {
 	int c, b = 0;
 	va_list arg;
+	specvalue *value;
 
+	value = malloc(sizeof(specvalue));
 	if (str == NULL)
 	{
 		return (-1);
@@ -23,24 +25,25 @@ int _printf(const char *str, ...)
 			c++;
 			if (str[c] == 'c' || str[c] == 'i' || str[c] == 'd')
 			{
-				b = funcsplit(arg, str[c]) - 2;
+				if (str[c] == 'c')
+				{	value->cha = va_arg(arg, int);
+				}
+				else
+				{	value->intvalue = va_arg(arg, int);
+				}
+				b += funcsplit(value, str[c]) - 1;
 			} else if (str[c] == 's')
-			{
-				b += funcsplit(arg, str[c]);
+			{	value->str = va_arg(arg, char *);
+				b += funcsplit(value, str[c]);
 			} else if (str[c] == '%')
-			{
-				_printchar(str[c]);
+			{	_printchar(str[c]);
 				b--;
 			} else if (str[c] != '\0')
-			{
-				_printchar('%');
+			{	_printchar('%');
 				c--;
-			} else
-			{
 			}
 		} else
-		{
-			_printchar(str[c]);
+		{	_printchar(str[c]);
 		}
 	}
 	return (c + b);
