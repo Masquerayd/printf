@@ -22,9 +22,16 @@ int funcsplit(specvalue *value, char cha)
 			break;
 		case 'i':
 		case 'd':
-			intTstr(value->intvalue, string);
-			b = printstr(string);
+/*			if (value->intvalue == 0)
+			{
+				b = printstr("0") -1;
+			} 
+			else
+			{
+*/			intTstr(value->intvalue, string);
+			b = printstr(string) - 1;
 			break;
+			
 		case 's':
 			b = printschec(value->str) - 2;
 			break;

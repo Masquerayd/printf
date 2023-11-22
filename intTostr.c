@@ -11,6 +11,12 @@ void intTstr(int inum, char *str)
 	int i = 0, number, length = 0, a;
 
 	a = inum;
+	if (inum == 0)
+	{
+		length++;
+		str[length -1] = '0';
+	}
+
 	while (a != 0)
 	{
 		length++;
