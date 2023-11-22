@@ -8,7 +8,7 @@
  * @cha: spercifier
  * Return: the num of characters printed
  */
-int funcsplit(va_list value, char cha)
+int funcsplit(specvalue *value, char cha)
 {
 	char *string;
 	int b = 0;
@@ -18,16 +18,15 @@ int funcsplit(va_list value, char cha)
 	switch (cha)
 	{
 		case 'c':
-			_printchar(va_arg(value, int));
-			b = 1;
+			_printchar(value->cha);
 			break;
 		case 'i':
 		case 'd':
-			intTstr(va_arg(value, int), string);
+			intTstr(value->intvalue, string);
 			b = printstr(string);
 			break;
 		case 's':
-			b = printschec(va_arg(value, char *)) - 2;
+			b = printschec(value->str) - 2;
 			break;
 	}
 	free(string);
