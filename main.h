@@ -60,7 +60,9 @@ int _strlen(char *str);
 char *_strcat(char *buffer, char *str);
 int _printchar(char str);
 int printstr(char *str);
-void funcsplit(char value, char cha);
+int funcsplit(va_list value, char cha);
 int printschec(char *string);
+void intTstr(int inum, char *str);
+
 
 #endif
