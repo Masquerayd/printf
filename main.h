@@ -62,7 +62,7 @@ int _printchar(char str);
 int printstr(char *str);
 int funcsplit(specvalue *value, char cha);
 int printschec(char *string);
-void intTstr(int inum, char *str);
+void intTstr(long int inum, char *str);
 
 
 #endif
