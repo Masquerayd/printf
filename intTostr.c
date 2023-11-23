@@ -6,9 +6,9 @@
  * @str: malloc created string
  * @inum: num to be converted
  */
-void intTstr(int inum, char *str)
+void intTstr(long int inum, char *str)
 {
-	int i = 0, number, length = 0, a;
+	long int i = 0, number, length = 0, a;
 
 	a = inum;
 	if (inum == 0)
